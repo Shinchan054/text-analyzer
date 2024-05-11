@@ -8,7 +8,7 @@ function getNumberOfCharacters(text) {
 }
 
 function getNumberOfSentences(text) {
-    return 0;
+    return text.split(/[.!?]/g).length - 1;
 }
 
 function getNumberOfParagraphs(text) {
