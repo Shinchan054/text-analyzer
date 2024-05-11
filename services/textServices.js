@@ -12,11 +12,22 @@ function getNumberOfSentences(text) {
 }
 
 function getNumberOfParagraphs(text) {
-    return 0;
+    return text.split(/\n+/).length;
 }
 
 function getLongestWord(text) {
-    return '';
+    let words = text.toLowerCase().split(/\s+/);
+    let longestWord = '';
+    let maxLength = 0;
+
+    for(let word of words) {
+        if(word.length > maxLength) {
+            maxLength = word.length;
+            longestWord = word;
+        }
+    }
+
+    return longestWord;
 }
 
 module.exports = {
