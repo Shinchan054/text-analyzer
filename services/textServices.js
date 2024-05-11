@@ -3,7 +3,8 @@ function getNumberOfWords(text) {
 }
 
 function getNumberOfCharacters(text) {
-    return 0;
+    let regex = /[a-zA-Z]/g;
+    return text.match(regex).length;
 }
 
 function getNumberOfSentences(text) {
