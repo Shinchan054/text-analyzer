@@ -1,5 +1,5 @@
 function getNumberOfWords(text) {
-    return 0;
+    return text.split(/\s+/).length;
 }
 
 function getNumberOfCharacters(text) {
