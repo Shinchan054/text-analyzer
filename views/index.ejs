@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet/index.css" />
+    <link rel="stylesheet" href="/index.css" />
     <title><%= title %></title>
 </head>
 <body>
-    <h1>Welcome to <%= title %></h1>
-    <p>i got <%= num %> </p>
-    <p>This is a basic Express application.</p>
+    <h1 style="text-align: center;">Welcome to <%= title %></h1>
+    <div>
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+              <tr>
+                <th>Id</th>
+                <th>Text</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (data.length) { %>
+                <% data.forEach((item) => { %>
+                  <tr>
+                    <td><%= item.id %></td>
+                    <td><%= item.text %></td>
+                  </tr>
+                <% }) %>
+                <% } else { %> 
+                  <tr>
+                    <td colspan="2">No data found</td>
+                  </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
 </body>
 </html>
