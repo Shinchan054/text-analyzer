@@ -13,12 +13,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use(express.static(__dirname + '/stylesheet'));
+app.use(express.static(__dirname + '/styles'));
 
-
+//routers
 const indexRouter = require('./routes/index');
-app.get('/', indexRouter);
+const textListRouter = require('./routes/texts');
+const textApiRouter = require('./routes/apis/analyzerApis');
+const editTextRouter = require('./routes/edittext');
+const deleteRouter = require('./routes/delete');
+//urls
+app.use('/', indexRouter);
+app.use('/texts', textListRouter);
+app.use('/text/analyze', textApiRouter);
+app.use('/edittext', editTextRouter);
+app.use('/delete', deleteRouter);
 
+//port
 app.use(expressLayouts);
 const PORT = process.env.PORT || 3000;
 
@@ -26,6 +36,7 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
+//on exit
 process.on('SIGINT', () => {
     console.log('Bye bye!');
     db.closePool();

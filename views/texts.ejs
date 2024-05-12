@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/texts.css" />
     <title><%= title %></title>
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -49,48 +49,32 @@
       </header>
 </head>
 <body>
-    <h1 style="text-align: center;">Welcome to <%= title %></h1>
-    <div class="form-outline" data-mdb-input-init>
-        <textarea class="form-control" id="textArea" rows="4"></textarea>
-        <label class="form-label" for="textArea">Write your text</label>
-        <!-- <button type="button" class="btn btn-primary btn-class " id="btn">Submit</button> -->
-    </div>
-    <h2 style="text-align: center; margin-top: 40px;">Generate Report</h2>
-    <div class="table-div">
+    <h1 style="text-align: center;">Text List</h1>
+    <div>
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light">
               <tr>
-                <th>ReportType</th>
-                <th>Count</th>
+                <th>Id</th>
+                <th>Text</th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>
-            <tbody id="table-body">
-                <tr>
-                    <td>WordCount</td>
-                    <td id="wordcount"></td>
-                    <td><button type="button" id="wordcount-btn">Get Word Count</button></td>
-                </tr>
-                <tr>
-                    <td>CharacterCount</td>
-                    <td id="charcount"></td>
-                    <td><button type="button" id="charcount-btn">Get Character Count</button></td>
-                </tr>
-                <tr>
-                    <td>SentenceCoubt</td>
-                    <td id="sentencecount"></td>
-                    <td><button type="button" id="sentencecount-btn">Get Sentence Count</button></td>
-                </tr>
-                <tr>
-                    <td>ParagraphCount</td>
-                    <td id="paragraphcount"></td>
-                    <td><button type="button" id="paragraphcount-btn">Get Paragraph count</button></td>
-                </tr>
-                <tr>
-                    <td>GetLongestWord</td>
-                    <td id="longestword"></td>
-                    <td><button type="button" id="longestword-btn">Get Longest Word</button></td>
-                </tr>
+            <tbody>
+              <% if (data.length) { %>
+                <% data.forEach((item) => { %>
+                  <tr>
+                    <td class="id"><%= item.id %></td>
+                    <td><%= item.text %></td>
+                    <td><button class="edit-btn" ><a href="/edittext/<%= item.id %>"> Edit Text</a></button></td>
+                    <td><button> <a href="/delete/<%= item.id %>"></a> Delete </button></td>
+                  </tr>
+                <% }) %>
+              <% } else { %> 
+                  <tr>
+                    <td colspan="2">No data found</td>
+                  </tr>
+              <% } %>
             </tbody>
           </table>
     </div>
@@ -98,7 +82,7 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
     ></script>
+    <script src="/texts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
-    <script src="/index.js" type="module"></script>
 </body>
 </html>
