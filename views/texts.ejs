@@ -58,6 +58,7 @@
                 <th>Text</th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -68,6 +69,7 @@
                     <td><%= item.text %></td>
                     <td><button class="edit-btn" ><a href="/edittext/<%= item.id %>"> Edit Text</a></button></td>
                     <td><button class="delete-btn"> <a href="/delete/<%= item.id %>"> Delete </a> </button></td>
+                    <td><button> <a href="/report/<%= item.id %>"> Report </a></button></td>
                   </tr>
                 <% }) %>
               <% } else { %> 

@@ -63,7 +63,17 @@ async function deleteText(req, res) {
     }
 }
 
-
+async function getTextByIdForReport(req, res) {
+    const id = req.params.id;
+    try {
+        const data = await dataServices.getTextById(id);
+        res.render('index', { text: data[0].Text, title: 'Text Analyzer'});
+    }
+    catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
 
 
 module.exports = {
@@ -71,5 +81,6 @@ module.exports = {
     getTextById,
     updateText,
     addText,
-    deleteText
+    deleteText,
+    getTextByIdForReport
 }

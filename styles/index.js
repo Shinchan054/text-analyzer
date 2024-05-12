@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', () => {
+    let textarea = document.getElementById('textArea')
+    let text = textarea.value
+    textarea.value = text.trim()
+});
+
 const wordCountButton = document.getElementById('wordcount-btn');
 wordCountButton.addEventListener('click', () => {
     console.log('Button clicked');

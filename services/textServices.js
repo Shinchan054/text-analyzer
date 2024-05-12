@@ -16,7 +16,7 @@ function getNumberOfParagraphs(text) {
 }
 
 function getLongestWord(text) {
-    let words = text.toLowerCase().split(/\s+/);
+    let words = text.toLowerCase().match(/\b\w+\b/g);
     let longestWord = '';
     let maxLength = 0;
 

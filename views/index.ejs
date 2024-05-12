@@ -51,9 +51,12 @@
 <body>
     <h1 style="text-align: center;">Welcome to <%= title %></h1>
     <div class="form-outline" data-mdb-input-init>
-        <textarea class="form-control" id="textArea" rows="4"></textarea>
+        <textarea class="form-control" id="textArea" rows="4">
+          <% if (text) { %>
+            <%= text %>
+          <% } %>
+        </textarea>
         <label class="form-label" for="textArea">Write your text</label>
-        <!-- <button type="button" class="btn btn-primary btn-class " id="btn">Submit</button> -->
     </div>
     <h2 style="text-align: center; margin-top: 40px;">Generate Report</h2>
     <div class="table-div">
