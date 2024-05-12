@@ -21,12 +21,14 @@ const textListRouter = require('./routes/texts');
 const textApiRouter = require('./routes/apis/analyzerApis');
 const editTextRouter = require('./routes/edittext');
 const deleteRouter = require('./routes/delete');
+const addRouter = require('./routes/addtext');
 //urls
 app.use('/', indexRouter);
 app.use('/texts', textListRouter);
 app.use('/text/analyze', textApiRouter);
 app.use('/edittext', editTextRouter);
 app.use('/delete', deleteRouter);
+app.use('/addtext', addRouter);
 
 //port
 app.use(expressLayouts);

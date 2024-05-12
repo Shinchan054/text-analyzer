@@ -51,12 +51,19 @@
 <body>
     <h1 style="text-align: center;">Add Text</h1>
     <div>
-        <form id="form">
-            <div class="form-outline" data-mdb-input-init>
-                <textarea class="form-control" id="textArea" rows="4" name="text"></textarea>
-                <label class="form-label" for="textArea">Edit your text</label>
+        <form action="/addtext/new" method="POST">
+            <div class="form-group">
+                <label for="text">Text</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="text"
+                    name="text"
+                    placeholder="Enter text"
+                    required
+                />
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </div>
-            <button type="submit" class="btn btn-primary btn-class" id="btn">Submit</button>
         </form>
     </div>
     <script
