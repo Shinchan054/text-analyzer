@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
+const keycloak = require('keycloak-connect');
 const morgan = require('morgan');
 app.set('view engine', 'ejs');
+
 
 const db = require('./db_config');
 
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/styles'));
+
 //routers
 const indexRouter = require('./routes/index');
 const textListRouter = require('./routes/texts');
@@ -21,6 +24,7 @@ const editTextRouter = require('./routes/edittext');
 const deleteRouter = require('./routes/delete');
 const addRouter = require('./routes/addtext');
 const reportRouter = require('./routes/report');
+
 //urls
 app.use('/', indexRouter);
 app.use('/texts', textListRouter);
@@ -43,6 +47,9 @@ process.on('SIGINT', () => {
     console.log('Bye bye!');
     db.closePool();
     process.exit();
+    require('./services/dataServices').myCache.flushAll();
 });
 
-module.exports = app;
+module.exports = {
+    app
+}

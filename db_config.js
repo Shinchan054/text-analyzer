@@ -1,23 +1,3 @@
-// const mysql = require('mysql');
-// const { promisify } = require('util');
-
-// const pool = mysql.createPool({
-//   connectionLimit: 10,
-//   user: 'root',
-//   password: '12345'
-// });
-
-// const query = promisify(pool.query).bind(pool);
-// const getConnection = promisify(pool.getConnection).bind(pool);
-
-// module.exports = {
-//     query,
-//     getConnection,
-//     pool
-// }
-
-// db.js
-
 const mysql = require('mysql');
 
 let pool;
