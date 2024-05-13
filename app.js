@@ -1,5 +1,4 @@
 const express = require('express');
-
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const morgan = require('morgan');
@@ -14,7 +13,6 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/styles'));
-
 //routers
 const indexRouter = require('./routes/index');
 const textListRouter = require('./routes/texts');
